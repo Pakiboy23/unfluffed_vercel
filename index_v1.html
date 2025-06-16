@@ -261,8 +261,11 @@
         // JavaScript for smooth scrolling when clicking on anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault(); // Prevent default jump behavior
                 const targetId = this.getAttribute('href'); // Get the ID from the href
+                if (targetId === '#') {
+                    return; // Allow default behaviour for top-of-page links
+                }
+                e.preventDefault(); // Prevent default jump behaviour
                 const targetElement = document.querySelector(targetId); // Find the target element
                 if (targetElement) {
                     targetElement.scrollIntoView({
