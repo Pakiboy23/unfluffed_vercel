@@ -251,9 +251,11 @@
         // JavaScript for mobile menu toggle functionality
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden'); // Toggles the 'hidden' class to show/hide the menu
-        });
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden'); // Toggles the 'hidden' class to show/hide the menu
+            });
+        }
 
         // JavaScript to set the current year dynamically in the footer
         document.getElementById('currentYear').textContent = new Date().getFullYear();
